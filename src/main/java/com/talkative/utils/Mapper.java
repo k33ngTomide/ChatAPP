@@ -13,6 +13,7 @@ import java.util.List;
 
 public class Mapper {
 
+
     public static User map(RegisterUserRequest registerUserRequest) {
         User user = new User();
         user.setEmail(registerUserRequest.getUsername());
@@ -30,12 +31,14 @@ public class Mapper {
         return registerUserResponse;
     }
 
-    public static void map(CreateChatRequest createChatRequest, Chat chat) {
-        chat.setChatName(createChatRequest.getFirstUser().getEmail() + " "
-                + createChatRequest.getSecondUser().getEmail());
-        List<User> createdUser = new ArrayList<>();
-        createdUser.add(createChatRequest.getFirstUser());
-        createdUser.add(createChatRequest.getSecondUser());
-        chat.setUsers(createdUser);
-    }
+//    public static void map(CreateChatRequest createChatRequest, Chat chat) {
+//
+//
+//        List<User> createdUser = new ArrayList<>();
+//        createdUser.add(createChatRequest.getFirstUser());
+//        createdUser.add(createChatRequest.getSecondUser());
+//        chat.setParticipant(createdUser);
+//    }
+
+
 }

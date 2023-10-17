@@ -20,7 +20,7 @@ public class Chat {
     private LocalDate dateCreated;
     private String message;
     private String chatName;
-//    @DBRef
-    private List<User> users = new ArrayList<>();
+    @DBRef
+    private List<User> participant = new ArrayList<>();
 
 }

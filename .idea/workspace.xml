@@ -5,35 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="460909cc-af5e-46e9-a61e-0652a50b5ce3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/models/Chat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/models/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/ChatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/MessageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/CreateChatRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/RegisterUserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/response/RegisterUserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/exceptions/UserAlreadyExistException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/exceptions/xTalkative.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/MessageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/utils/Mapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/talkative/data/repositories/UserRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/talkative/services/UserServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/exceptions/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/data/models/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/models/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/CreateChatRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/CreateChatRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/utils/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/utils/Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/talkative/services/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/talkative/services/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,30 +42,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -110,18 +92,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRepositoryTest.testThatRepositorySaveSuccessfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="talkative" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.talkative.data.repositories.*" />
+          <option name="PATTERN" value="com.talkative.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.talkative.data.repositories" />
-      <option name="MAIN_CLASS_NAME" value="com.talkative.data.repositories.UserRepositoryTest" />
-      <option name="METHOD_NAME" value="testThatRepositorySaveSuccessfully" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.talkative.services" />
+      <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -177,10 +158,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserServiceTest.testThatUserCanCreateChat" />
+        <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="JUnit.UserServiceTest.testThatUserIsUnique" />
         <item itemvalue="JUnit.UserServiceTest.testThatUserCanRegister" />
         <item itemvalue="JUnit.UserRepositoryTest" />
-        <item itemvalue="JUnit.UserRepositoryTest.testThatRepositorySaveSuccessfully" />
       </list>
     </recent_temporary>
   </component>
@@ -193,7 +174,7 @@
       <option name="presentableId" value="Default" />
       <updated>1697488062614</updated>
       <workItem from="1697488063613" duration="18142000" />
-      <workItem from="1697522944487" duration="3578000" />
+      <workItem from="1697522944487" duration="12313000" />
     </task>
     <servers />
   </component>

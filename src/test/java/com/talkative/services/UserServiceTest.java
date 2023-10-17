@@ -61,27 +61,22 @@ public class UserServiceTest {
 
     @Test
     public void testThatUserCanCreateChat(){
-        User user = new User();
-        user.setEmail("Tomide");
-        user.setPassword("password");
 
         RegisterUserRequest registerUserRequest = new RegisterUserRequest();
-        registerUserRequest.setUsername(user.getEmail());
-        registerUserRequest.setPassword(user.getPassword());
+        registerUserRequest.setUsername("tomide");
+        registerUserRequest.setPassword("password");
         userService.registerWith(registerUserRequest);
 
-        User user1 = new User();
-        user1.setEmail("Akintomide");
-        user1.setPassword("password");
+
 
         RegisterUserRequest registerUserRequest1 = new RegisterUserRequest();
-        registerUserRequest1.setUsername(user1.getEmail());
-        registerUserRequest1.setPassword(user1.getPassword());
+        registerUserRequest1.setUsername("esther");
+        registerUserRequest1.setPassword("password");
         userService.registerWith(registerUserRequest1);
 
         CreateChatRequest createChatRequest = new CreateChatRequest();
-        createChatRequest.setFirstUser(user);
-        createChatRequest.setSecondUser(user1);
+        createChatRequest.setFirstUser("tomide");
+        createChatRequest.setSecondUser("esther");
 
         userService.createChat(createChatRequest);
         assertThat(chatRepository.count(), is(1L));
