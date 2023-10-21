@@ -1,14 +1,13 @@
 package com.talkative.services;
 
 import com.talkative.data.models.Chat;
-import com.talkative.data.models.User;
 import com.talkative.data.repositories.ChatRepository;
-import com.talkative.dtos.request.CreateChatRequest;
+import com.talkative.dtos.request.FindChatRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
-import static com.talkative.utils.Mapper.map;
+import java.util.Optional;
+
 
 @Service
 public class ChatServiceImpl implements ChatService{
@@ -22,6 +21,12 @@ public class ChatServiceImpl implements ChatService{
         chatRepository.save(chat);
     }
 
+    @Override
+    public Chat findChat(FindChatRequest findChatRequest) {
+        Optional<Chat> chat = chatRepository
+                .findChatByChatNameContainingAndParticipantIn(findChatRequest.getChatName(), findChatRequest.getParticipant());
+        return chat.orElse(null);
+    }
 
 
 }

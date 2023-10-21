@@ -4,7 +4,9 @@ import com.talkative.data.models.Chat;
 import com.talkative.data.models.User;
 import com.talkative.data.repositories.UserRepository;
 import com.talkative.dtos.request.CreateChatRequest;
+import com.talkative.dtos.request.FindChatRequest;
 import com.talkative.dtos.request.RegisterUserRequest;
+import com.talkative.dtos.request.SendMessageRequest;
 import com.talkative.dtos.response.RegisterUserResponse;
 import com.talkative.exceptions.UserAlreadyExistException;
 import com.talkative.exceptions.UserNotFoundException;
@@ -25,6 +27,9 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private ChatService chatService;
 
+    @Autowired
+    private MessageService messageService;
+
     @Override
     public RegisterUserResponse registerWith(RegisterUserRequest registerUserRequest) {
         findUser(registerUserRequest);
@@ -32,13 +37,14 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void createChat(CreateChatRequest createChatRequest) {
+    public Chat createChat(CreateChatRequest createChatRequest) {
         Chat chat = new Chat();
         chat.setChatName(createChatRequest.getFirstUser() + " "
                 + createChatRequest.getSecondUser());
         chat.getParticipant().addAll(List
                 .of(findByEmail(createChatRequest.getFirstUser()), findByEmail(createChatRequest.getSecondUser())));
         chatService.createChat(chat);
+        return chat;
     }
 
     private void findUser(RegisterUserRequest registerUserRequest) {
@@ -56,7 +62,32 @@ public class UserServiceImpl implements UserService{
         throw new UserNotFoundException("User Not Found");
     }
 
+    @Override
+    public void sendMessage(SendMessageRequest sendMessageRequest) {
+        CreateChatRequest createChatRequest = new CreateChatRequest();
+        createChatRequest.setFirstUser(sendMessageRequest.getFrom());
+        createChatRequest.setSecondUser(sendMessageRequest.getTo());
 
+        FindChatRequest findChatRequest = new FindChatRequest();
+        findChatRequest.setChatName(sendMessageRequest.getFrom() + " " + sendMessageRequest.getTo());
+        findChatRequest.setParticipant(List
+                .of(findByEmail(sendMessageRequest.getFrom()), findByEmail(sendMessageRequest.getTo())));
+        Chat chat = findChat(findChatRequest);
+
+        if(chat == null) chat = createChat(createChatRequest);
+        postMessage(sendMessageRequest, chat);
+
+    }
+
+
+    private void postMessage(SendMessageRequest sendMessageRequest, Chat chat) {
+        messageService.sendMessage(sendMessageRequest, chat);
+
+    }
+
+    private Chat findChat(FindChatRequest findChatRequest) {
+       return chatService.findChat(findChatRequest);
+    }
 
 
 }

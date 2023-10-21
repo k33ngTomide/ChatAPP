@@ -12,7 +12,7 @@ public class Message {
 
     @Id
     private String id;
-    private LocalDate dateCreated = LocalDate.now();
+    private LocalDate dateCreated;
     private String body;
     private boolean isRead;
     private String chatId;

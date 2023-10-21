@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="460909cc-af5e-46e9-a61e-0652a50b5ce3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/exceptions/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/FindChatRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/SendMessageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/exceptions/ChatNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/MessageServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/data/models/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/models/Chat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/CreateChatRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/CreateChatRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/data/models/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/models/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/ChatRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/ChatRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/MessageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/utils/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/utils/Mapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/talkative/services/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/talkative/services/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +67,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -76,22 +80,7 @@
       <recent name="com.talkative.data.repositories" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest.testThatUserCanCreateChat">
-    <configuration name="UserRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="talkative" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.talkative.data.repositories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.talkative.data.repositories" />
-      <option name="MAIN_CLASS_NAME" value="com.talkative.data.repositories.UserRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserServiceTest.testThatNoNewChatIsCreatedIfMessageIsNotTheFirst">
     <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="talkative" />
       <extension name="coverage">
@@ -103,6 +92,54 @@
       <option name="PACKAGE_NAME" value="com.talkative.services" />
       <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.testThatChatIsCreatedWhenUserSendsFirstMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="talkative" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.talkative.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.talkative.services" />
+      <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
+      <option name="METHOD_NAME" value="testThatChatIsCreatedWhenUserSendsFirstMessage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.testThatMessagesGetSavedToMessageReposiory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="talkative" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.talkative.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.talkative.services" />
+      <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
+      <option name="METHOD_NAME" value="testThatMessagesGetSavedToMessageReposiory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.testThatNoNewChatIsCreatedIfMessageIsNotTheFirst" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="talkative" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.talkative.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.talkative.services" />
+      <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
+      <option name="METHOD_NAME" value="testThatNoNewChatIsCreatedIfMessageIsNotTheFirst" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,45 +160,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.testThatUserCanRegister" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="talkative" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.talkative.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.talkative.services" />
-      <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
-      <option name="METHOD_NAME" value="testThatUserCanRegister" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.testThatUserIsUnique" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="talkative" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.talkative.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.talkative.services" />
-      <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
-      <option name="METHOD_NAME" value="testThatUserIsUnique" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceTest.testThatUserCanCreateChat" />
+        <item itemvalue="JUnit.UserServiceTest.testThatNoNewChatIsCreatedIfMessageIsNotTheFirst" />
+        <item itemvalue="JUnit.UserServiceTest.testThatMessagesGetSavedToMessageReposiory" />
         <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest.testThatUserIsUnique" />
-        <item itemvalue="JUnit.UserServiceTest.testThatUserCanRegister" />
-        <item itemvalue="JUnit.UserRepositoryTest" />
+        <item itemvalue="JUnit.UserServiceTest.testThatChatIsCreatedWhenUserSendsFirstMessage" />
+        <item itemvalue="JUnit.UserServiceTest.testThatUserCanCreateChat" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +179,13 @@
       <option name="presentableId" value="Default" />
       <updated>1697488062614</updated>
       <workItem from="1697488063613" duration="18142000" />
-      <workItem from="1697522944487" duration="12313000" />
+      <workItem from="1697522944487" duration="18125000" />
+      <workItem from="1697595341886" duration="5268000" />
+      <workItem from="1697708200863" duration="623000" />
+      <workItem from="1697716247944" duration="630000" />
+      <workItem from="1697751860084" duration="1231000" />
+      <workItem from="1697844223336" duration="701000" />
+      <workItem from="1697876518475" duration="8490000" />
     </task>
     <servers />
   </component>
