@@ -1,15 +1,11 @@
 package com.talkative.utils;
 
-import com.talkative.data.models.Chat;
 import com.talkative.data.models.User;
-import com.talkative.dtos.request.CreateChatRequest;
 import com.talkative.dtos.request.RegisterUserRequest;
 import com.talkative.dtos.response.RegisterUserResponse;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Mapper {
 
@@ -31,14 +27,6 @@ public class Mapper {
         return registerUserResponse;
     }
 
-//    public static void map(CreateChatRequest createChatRequest, Chat chat) {
-//
-//
-//        List<User> createdUser = new ArrayList<>();
-//        createdUser.add(createChatRequest.getFirstUser());
-//        createdUser.add(createChatRequest.getSecondUser());
-//        chat.setParticipant(createdUser);
-//    }
 
 
 }

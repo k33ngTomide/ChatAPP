@@ -37,6 +37,7 @@ public class UserServiceTest {
         chatRepository.deleteAll();
         messageRepository.deleteAll();
     }
+
     @Test
     public void testThatUserCanRegister(){
         RegisterUserRequest registerUserRequest = new RegisterUserRequest();
@@ -95,8 +96,6 @@ public class UserServiceTest {
         registerUserRequest.setPassword("password");
         userService.registerWith(registerUserRequest);
 
-
-
         RegisterUserRequest registerUserRequest1 = new RegisterUserRequest();
         registerUserRequest1.setUsername("Akintomide");
         registerUserRequest1.setPassword("password");
@@ -111,14 +110,13 @@ public class UserServiceTest {
         sendMessageRequest.setTo("Akintomide");
         sendMessageRequest.setMessageBody("There is place i want you to be");
 
-
         userService.sendMessage(sendMessageRequest);
         assertThat(chatRepository.count(), is(1L));
 
     }
 
     @Test
-    public void testThatNoNewChatIsCreatedIfMessageIsNotTheFirst(){
+    public void testThatNoNewChatIsNot_createdIfMessageIsNotTheFirst(){
 
         RegisterUserRequest registerUserRequest = new RegisterUserRequest();
         registerUserRequest.setUsername("Tomide");
@@ -141,7 +139,6 @@ public class UserServiceTest {
         userService.sendMessage((sendMessageRequest));
         assertThat(chatRepository.count(), is(1L));
 
-
         SendMessageRequest sendMessageRequest1 = new SendMessageRequest();
         sendMessageRequest1.setFrom("Tomide");
         sendMessageRequest1.setTo("Akintomide");
@@ -152,7 +149,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testThatMessagesGetSavedToMessageReposiory(){
+    public void testThatMessagesReplyDoesNotCreateANewChat_andMessagesAreSaved(){
         RegisterUserRequest registerUserRequest = new RegisterUserRequest();
         registerUserRequest.setUsername("Tomide");
         registerUserRequest.setPassword("password");
@@ -177,7 +174,6 @@ public class UserServiceTest {
         assertThat(chatRepository.count(), is(1L));
         assertThat(messageRepository.count(), is(1L));
 
-
         SendMessageRequest sendMessageRequest1 = new SendMessageRequest();
         sendMessageRequest1.setFrom("Tomide");
         sendMessageRequest1.setTo("Akintomide");
@@ -190,12 +186,11 @@ public class UserServiceTest {
         SendMessageRequest sendMessageRequest2 = new SendMessageRequest();
         sendMessageRequest2.setFrom("Muiliyu");
         sendMessageRequest2.setTo("Tomide");
-        sendMessageRequest2.setMessageBody("Hey, How far my guy");
+        sendMessageRequest2.setMessageBody("Senior Man, How far my guy?");
         userService.sendMessage(sendMessageRequest2);
 
         assertThat(chatRepository.count(), is(2L));
         assertThat(messageRepository.count(), is(3L));
-
 
         SendMessageRequest sendMessageRequest3 = new SendMessageRequest();
         sendMessageRequest3.setFrom("Tomide");
@@ -207,6 +202,20 @@ public class UserServiceTest {
         assertThat(messageRepository.count(), is(4L));
     }
 
+    @Test
+    public void testThatUserCanDeleteAMessage(){
+
+        RegisterUserRequest registerUserRequest = new RegisterUserRequest();
+        registerUserRequest.setUsername("Tomide");
+        registerUserRequest.setPassword("password");
+        userService.registerWith(registerUserRequest);
+
+        RegisterUserRequest registerUserRequest1 = new RegisterUserRequest();
+        registerUserRequest1.setUsername("Akintomide");
+        registerUserRequest1.setPassword("password");
+        userService.registerWith(registerUserRequest1);
+
+    }
 
 
 

@@ -69,14 +69,14 @@ public class UserServiceImpl implements UserService{
         createChatRequest.setSecondUser(sendMessageRequest.getTo());
 
         FindChatRequest findChatRequest = new FindChatRequest();
-        findChatRequest.setChatName(sendMessageRequest.getFrom() + " " + sendMessageRequest.getTo());
+        findChatRequest.setFirstChatName(sendMessageRequest.getFrom() + " " + sendMessageRequest.getTo());
+        findChatRequest.setSecondChatName(sendMessageRequest.getTo() + " " + sendMessageRequest.getFrom());
         findChatRequest.setParticipant(List
                 .of(findByEmail(sendMessageRequest.getFrom()), findByEmail(sendMessageRequest.getTo())));
         Chat chat = findChat(findChatRequest);
 
-        if(chat == null) chat = createChat(createChatRequest);
+        if (chat == null) chat = createChat(createChatRequest);
         postMessage(sendMessageRequest, chat);
-
     }
 
 

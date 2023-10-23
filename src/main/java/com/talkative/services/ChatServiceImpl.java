@@ -24,9 +24,23 @@ public class ChatServiceImpl implements ChatService{
     @Override
     public Chat findChat(FindChatRequest findChatRequest) {
         Optional<Chat> chat = chatRepository
-                .findChatByChatNameContainingAndParticipantIn(findChatRequest.getChatName(), findChatRequest.getParticipant());
-        return chat.orElse(null);
+                .findChatByChatNameAndParticipantContains(
+                        findChatRequest.getFirstChatName(),
+                        findChatRequest.getParticipant());
+
+        if(chat.isPresent()) return chat.get();
+        Optional<Chat> theSameChat = checkRepositoryAgain(findChatRequest);
+        return theSameChat.orElse(null);
+
     }
+
+    private Optional<Chat> checkRepositoryAgain(FindChatRequest findChatRequest) {
+        return chatRepository
+                .findChatByChatNameAndParticipantContains(
+                        findChatRequest.getSecondChatName(),
+                        findChatRequest.getParticipant());
+    }
+
 
 
 }
