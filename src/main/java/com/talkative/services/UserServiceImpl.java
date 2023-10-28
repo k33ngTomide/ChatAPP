@@ -1,13 +1,12 @@
 package com.talkative.services;
 
 import com.talkative.data.models.Chat;
+import com.talkative.data.models.Message;
 import com.talkative.data.models.User;
 import com.talkative.data.repositories.UserRepository;
-import com.talkative.dtos.request.CreateChatRequest;
-import com.talkative.dtos.request.FindChatRequest;
-import com.talkative.dtos.request.RegisterUserRequest;
-import com.talkative.dtos.request.SendMessageRequest;
+import com.talkative.dtos.request.*;
 import com.talkative.dtos.response.RegisterUserResponse;
+import com.talkative.exceptions.ChatNotFoundException;
 import com.talkative.exceptions.UserAlreadyExistException;
 import com.talkative.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,15 +67,57 @@ public class UserServiceImpl implements UserService{
         createChatRequest.setFirstUser(sendMessageRequest.getFrom());
         createChatRequest.setSecondUser(sendMessageRequest.getTo());
 
-        FindChatRequest findChatRequest = new FindChatRequest();
-        findChatRequest.setFirstChatName(sendMessageRequest.getFrom() + " " + sendMessageRequest.getTo());
-        findChatRequest.setSecondChatName(sendMessageRequest.getTo() + " " + sendMessageRequest.getFrom());
-        findChatRequest.setParticipant(List
-                .of(findByEmail(sendMessageRequest.getFrom()), findByEmail(sendMessageRequest.getTo())));
-        Chat chat = findChat(findChatRequest);
+        Chat chat = findChatWithUsers(sendMessageRequest.getFrom(), sendMessageRequest.getTo());
 
         if (chat == null) chat = createChat(createChatRequest);
         postMessage(sendMessageRequest, chat);
+    }
+
+    @Override
+    public void deleteMessage(DeleteMessageRequest deleteMessage) {
+        FindMessageRequest findMessageRequest = new FindMessageRequest();
+        Chat chat = findChatWithUsers(deleteMessage.getFrom(), deleteMessage.getTo());
+
+        validateChat(chat);
+
+        findMessageRequest.setChatId(chat.getId());
+        findMessageRequest.setMessageBody(deleteMessage.getMessageBody());
+        Message message = messageService.findMessage(findMessageRequest);
+        messageService.delete(message);
+
+    }
+
+    private static void validateChat(Chat chat) {
+        if (chat == null) throw new ChatNotFoundException("Chat not Found");
+    }
+
+    @Override
+    public List<String> viewAllMessage(String firstUser, String secondUser) {
+        Chat foundChat = findChatWithUsers(firstUser, secondUser);
+
+        validateChat(foundChat);
+
+        return messageService.findAllMessages(foundChat);
+    }
+
+    @Override
+    public void deleteChat(DeleteChatRequest deleteChatRequest) {
+        Chat chat = findChatWithUsers(deleteChatRequest.getFrom(), deleteChatRequest.getTo());
+        validateChat(chat);
+        chatService.delete(chat);
+
+
+    }
+
+    private Chat findChatWithUsers(String firstUser, String secondUser) {
+        FindChatRequest findChatRequest = new FindChatRequest();
+
+        findChatRequest.setFirstChatName(firstUser + " " + secondUser);
+        findChatRequest.setSecondChatName(secondUser + " " + firstUser);
+        findChatRequest.setParticipant(List
+                .of(findByEmail(firstUser), findByEmail(secondUser)));
+        Chat chat = findChat(findChatRequest);
+        return chat;
     }
 
 

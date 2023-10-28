@@ -1,11 +1,12 @@
 package com.talkative.services;
 
 import com.talkative.data.models.Chat;
+import com.talkative.data.models.Message;
 import com.talkative.data.models.User;
-import com.talkative.dtos.request.CreateChatRequest;
-import com.talkative.dtos.request.RegisterUserRequest;
-import com.talkative.dtos.request.SendMessageRequest;
+import com.talkative.dtos.request.*;
 import com.talkative.dtos.response.RegisterUserResponse;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -16,4 +17,10 @@ public interface UserService {
     User findByEmail(String username);
 
     void sendMessage(SendMessageRequest sendMessageRequest);
+
+    void deleteMessage(DeleteMessageRequest deleteMessage);
+
+    List<String> viewAllMessage(String firstUser, String secondUser);
+
+    void deleteChat(DeleteChatRequest deleteChatRequest);
 }

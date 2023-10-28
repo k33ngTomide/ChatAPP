@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="460909cc-af5e-46e9-a61e-0652a50b5ce3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/DeleteChatRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/DeleteMessageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/FindMessageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/talkative/exceptions/MessageNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/ChatRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/ChatRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/FindChatRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/dtos/request/FindChatRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/data/repositories/MessageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/ChatServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/services/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/talkative/utils/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/talkative/utils/Mapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/talkative/services/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/talkative/services/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +48,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
@@ -92,7 +101,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.testThatChatIsCreatedWhenUserSendsFirstMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.testThatAnExceptionIsThrownIfUserDeleteMessage_butChatDoesNotExist_" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="talkative" />
       <extension name="coverage">
         <pattern>
@@ -102,13 +111,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.talkative.services" />
       <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
-      <option name="METHOD_NAME" value="testThatChatIsCreatedWhenUserSendsFirstMessage" />
+      <option name="METHOD_NAME" value="testThatAnExceptionIsThrownIfUserDeleteMessage_butChatDoesNotExist_" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.testThatMessagesGetSavedToMessageReposiory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.testThatAnExceptionIsThrownWhenUserDeleteAMessageThatNeverExisted" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="talkative" />
       <extension name="coverage">
         <pattern>
@@ -118,13 +127,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.talkative.services" />
       <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
-      <option name="METHOD_NAME" value="testThatMessagesGetSavedToMessageReposiory" />
+      <option name="METHOD_NAME" value="testThatAnExceptionIsThrownWhenUserDeleteAMessageThatNeverExisted" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.testThatNoNewChatIsCreatedIfMessageIsNotTheFirst" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.testThatUserCanDeleteChat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="talkative" />
       <extension name="coverage">
         <pattern>
@@ -134,13 +143,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.talkative.services" />
       <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
-      <option name="METHOD_NAME" value="testThatNoNewChatIsCreatedIfMessageIsNotTheFirst" />
+      <option name="METHOD_NAME" value="testThatUserCanDeleteChat" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.testThatUserCanCreateChat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.testThatUserCanViewChat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="talkative" />
       <extension name="coverage">
         <pattern>
@@ -150,7 +159,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.talkative.services" />
       <option name="MAIN_CLASS_NAME" value="com.talkative.services.UserServiceTest" />
-      <option name="METHOD_NAME" value="testThatUserCanCreateChat" />
+      <option name="METHOD_NAME" value="testThatUserCanViewChat" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,10 +168,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest.testThatMessagesGetSavedToMessageReposiory" />
-        <item itemvalue="JUnit.UserServiceTest.testThatNoNewChatIsCreatedIfMessageIsNotTheFirst" />
-        <item itemvalue="JUnit.UserServiceTest.testThatChatIsCreatedWhenUserSendsFirstMessage" />
-        <item itemvalue="JUnit.UserServiceTest.testThatUserCanCreateChat" />
+        <item itemvalue="JUnit.UserServiceTest.testThatUserCanDeleteChat" />
+        <item itemvalue="JUnit.UserServiceTest.testThatUserCanViewChat" />
+        <item itemvalue="JUnit.UserServiceTest.testThatAnExceptionIsThrownWhenUserDeleteAMessageThatNeverExisted" />
+        <item itemvalue="JUnit.UserServiceTest.testThatAnExceptionIsThrownIfUserDeleteMessage_butChatDoesNotExist_" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +194,14 @@
       <workItem from="1697972688277" duration="3683000" />
       <workItem from="1698000574226" duration="134000" />
       <workItem from="1698045049825" duration="831000" />
-      <workItem from="1698064193414" duration="1100000" />
+      <workItem from="1698064193414" duration="5089000" />
+      <workItem from="1698151953704" duration="819000" />
+      <workItem from="1698179566949" duration="234000" />
+      <workItem from="1698183081989" duration="420000" />
+      <workItem from="1698224222422" duration="18000" />
+      <workItem from="1698275906314" duration="145000" />
+      <workItem from="1698363011366" duration="2092000" />
+      <workItem from="1698524017223" duration="9234000" />
     </task>
     <servers />
   </component>

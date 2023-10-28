@@ -34,6 +34,11 @@ public class ChatServiceImpl implements ChatService{
 
     }
 
+    @Override
+    public void delete(Chat chat) {
+        chatRepository.delete(chat);
+    }
+
     private Optional<Chat> checkRepositoryAgain(FindChatRequest findChatRequest) {
         return chatRepository
                 .findChatByChatNameAndParticipantContains(
