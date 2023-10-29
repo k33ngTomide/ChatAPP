@@ -20,8 +20,12 @@ public class UserController {
 
     @PostMapping("/register")
     public String register(@RequestBody RegisterUserRequest registerUserRequest){
-        userService.registerWith(registerUserRequest);
-        return "User Registered Successfully";
+        try {
+            userService.registerWith(registerUserRequest);
+            return "User Registered Successfully";
+        } catch (Exception error){
+            return error.getMessage();
+        }
 
     }
 

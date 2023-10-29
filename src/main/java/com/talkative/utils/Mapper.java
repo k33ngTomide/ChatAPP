@@ -1,7 +1,9 @@
 package com.talkative.utils;
 
 import com.talkative.data.models.User;
+import com.talkative.dtos.request.CreateChatRequest;
 import com.talkative.dtos.request.RegisterUserRequest;
+import com.talkative.dtos.request.SendMessageRequest;
 import com.talkative.dtos.response.RegisterUserResponse;
 
 import java.time.LocalDateTime;
@@ -27,6 +29,12 @@ public class Mapper {
         return registerUserResponse;
     }
 
+    public static CreateChatRequest map(SendMessageRequest sendMessageRequest) {
+        CreateChatRequest createChatRequest = new CreateChatRequest();
+        createChatRequest.setFirstUser(sendMessageRequest.getFrom());
+        createChatRequest.setSecondUser(sendMessageRequest.getTo());
+        return createChatRequest;
+    }
 
 
 }

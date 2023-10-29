@@ -31,8 +31,17 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public RegisterUserResponse registerWith(RegisterUserRequest registerUserRequest) {
+        validateRequestIsNotEmpty(registerUserRequest);
         findUser(registerUserRequest);
         return map(userRepository.save(map(registerUserRequest)));
+    }
+
+    private static void validateRequestIsNotEmpty(RegisterUserRequest registerUserRequest) {
+        boolean userNameIsNull = registerUserRequest.getUsername() == null;
+        boolean passwordIsNull = registerUserRequest.getPassword() == null;
+        if ( userNameIsNull || passwordIsNull){
+            throw new UserAlreadyExistException("Username or password is Invalid");
+        }
     }
 
     @Override
@@ -63,15 +72,13 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void sendMessage(SendMessageRequest sendMessageRequest) {
-        CreateChatRequest createChatRequest = new CreateChatRequest();
-        createChatRequest.setFirstUser(sendMessageRequest.getFrom());
-        createChatRequest.setSecondUser(sendMessageRequest.getTo());
-
+        CreateChatRequest createChatRequest = map(sendMessageRequest);
         Chat chat = findChatWithUsers(sendMessageRequest.getFrom(), sendMessageRequest.getTo());
 
         if (chat == null) chat = createChat(createChatRequest);
         postMessage(sendMessageRequest, chat);
     }
+
 
     @Override
     public void deleteMessage(DeleteMessageRequest deleteMessage) {
@@ -94,7 +101,6 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<String> viewAllMessage(String firstUser, String secondUser) {
         Chat foundChat = findChatWithUsers(firstUser, secondUser);
-
         validateChat(foundChat);
 
         return messageService.findAllMessages(foundChat);
@@ -129,6 +135,5 @@ public class UserServiceImpl implements UserService{
     private Chat findChat(FindChatRequest findChatRequest) {
        return chatService.findChat(findChatRequest);
     }
-
 
 }
